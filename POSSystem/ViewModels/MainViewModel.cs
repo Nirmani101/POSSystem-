@@ -81,7 +81,9 @@ namespace POSSystem.ViewModels
             if (string.IsNullOrWhiteSpace(ProductCode))
                 return;
 
-            
+            var product = Products.FirstOrDefault(p => p.Code == ProductCode);
+            if (product == null)
+                return;
 
             var existingItem = CartItems.FirstOrDefault(item => item.Product.Code == ProductCode);
             if (existingItem != null)
